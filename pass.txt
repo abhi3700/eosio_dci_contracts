@@ -1,0 +1,33 @@
+Wallet (locally)
+================
+name: dcieos
+password: "PW5JLBrQHkrYZj7ey8cRmEzr43DUwbaJsezGEhV5RpskBHSpVVuek"
+command: `cleos wallet unlock -n dcieos --password PW5JLBrQHkrYZj7ey8cRmEzr43DUwbaJsezGEhV5RpskBHSpVVuek`
+########################################################################
+Jungle Testnet
+*********************************************************************************************************
+
+DCI Contracts
+=============
+dci1111token
+Private key: 5KaVWgQ5Xg81R2ZgLaBXYVufKRnWjJEYpM5JbKZH66bbX9NEU6R
+Public key: EOS5DazDnUn4LKimR52s2ZX3mrb94rH7CisQ1iz3ZcfDQCb56u8Zo
+-------------------------------------------------------------
+dci111111ico
+Private key: 5K57ycJ25fTM7sMMyTR3UDFiV3j2bJHaJzJTe1jaGZkHQtrogiG
+Public key: EOS6w9vTLQhv68Te1vYgsSbApXcv1c7iZ9bHnggbX6SptSgGGAKj9
+-------------------------------------------------------------
+
+DCI System accounts
+===================
+dcieosissuer
+Private key: 5Ju7usGUUyZ8XCYCY3MSBtCYSGsimeFQPYWzLmgiTZnFw2RmRNc
+Public key: EOS55GFsA1eGsyLiMeCahPun2yNdkUHx4iAD7fTykaKQ7eyYW9UCp
+-------------------------------------------------------------
+
+DCI Users
+=========
+dciuser11111
+Private key: 5Hsv3moYb27TD9VDtXJRBrBMbMStNjGyaa6EcFqk2eZb1yLdFLL
+Public key: EOS8cSmKMcuZxHrRFpAwVicBb1fQpDrKtdbR565c8YNu3s1iiirbM
+-------------------------------------------------------------
