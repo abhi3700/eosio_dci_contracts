@@ -25,10 +25,12 @@ void dciico::deposit( const name& buyer_ac,
 	if(fund_it == fund_table.end()) {
 		fund_table.emplace(get_self(), [&](auto& row) {
 			row.balance = quantity;
+			row.status = "deposited"_n;
 		});
 	} else {
 		fund_table.modify(fund_it, get_self(), [&](auto& row) {
 			row.balance += quantity;
+			row.status = "deposited"_n;
 		});
 	}
 	

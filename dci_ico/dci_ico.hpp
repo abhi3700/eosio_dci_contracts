@@ -106,6 +106,7 @@ private:
 	TABLE fund
 	{
 		asset balance;
+		name status;		// "deposited"/"disbursed"
 
 		auto primary_key() const { return balance.symbol.raw(); }
 	};
