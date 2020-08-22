@@ -25,3 +25,8 @@ A token contract for transferring token (as per the ICO rate) during ICO on EOSI
 * `fund`
 * `rates`
 
+
+## NOTES
+* __Fund__ vs __Wallet__
+	- Fund is where the amount gets added up in the stored value of table. E.g. used in "DCI" ICO contract.
+	- Wallet is where the amount has to be deducted from the stored value in the table. E.g. used in "TOE" Wallet contract.

@@ -30,7 +30,8 @@ using std::string;
 CONTRACT dciico : public contract
 {
 private:
-	const symbol ride_token_symbol;
+	const symbol fund_token_symbol;
+	const symbol dapp_token_symbol;
 	const name token_contract_ac;
 
 public:
@@ -39,6 +40,7 @@ public:
 	dciico(name receiver, name code, datastream<const char*> ds) : 
 				contract(receiver, code, ds), 
 				fund_token_symbol("EOS", 4),
+				dapp_token_symbol("DCI", 4),
 				token_contract_ac("dci1111token"_n) {}
 
 
@@ -74,11 +76,13 @@ public:
 	 * @details - disburse from fund to 
 	 * 
 	 * @param receiver_ac - account to whom money is disbursed
-	 * @param quantity - disburse amount
+	 * @param phase - A/B/C
+	 * @param disburse_qty - deposited quantity
 	 * @param memo - purpose of disbursing money
 	 */
 	ACTION disburse( const name& receiver_ac,
-					const asset& quantity,
+					const name& phase,
+					const asset& disburse_qty,
 					const string& memo );
 
 	/**
@@ -95,20 +99,21 @@ public:
 
 	using disburse_action  = action_wrapper<"disburse"_n, &dciico::disburse>;
 
-	static void check_quantity( const asset& quantity ) {
+	static void check_quantity( const asset& quantity, const symbol& qty_sym ) {
 		check(quantity.is_valid(), "invalid quantity");
 		check(quantity.amount > 0, "must withdraw positive quantity");
-		check(quantity.symbol == symbol("EOS", 4), "symbol precision mismatch. Also, could be bcoz of sending some other tokens to this contract.");
+		check(quantity.symbol == qty_sym, "symbol precision mismatch. Also, could be bcoz of sending some other tokens to this contract.");
 	}
 
 private:
 	// `fund` table is for keeping the record of all deposits in EOS
 	TABLE fund
 	{
-		asset balance;
-		name status;		// "deposited"/"disbursed"
+		asset fund_balance;			// in "EOS"
+		name status;				// "deposited"/"redeposited"/"disbursed"
+		asset disburse_qty;		// in "DCI"
 
-		auto primary_key() const { return balance.symbol.raw(); }
+		auto primary_key() const { return fund_balance.symbol.raw(); }
 	};
 
 	using fund_index = multi_index<"fund"_n, fund>;
@@ -117,14 +122,22 @@ private:
 	TABLE icorate
 	{
 		name phase;
-		float price_pereos;		// 1 EOS = 30.56 DCI. So, price_pereos = 30.56
+		float price_pereos;		// E.g. 1 EOS = 30.56 DCI. So, price_pereos = 30.56
+
+		auto primary_key() const { return phase.value; }
 	};
 
-	using icorate_index = multi_index<"icorates", icorate>;
+	using icorate_index = multi_index<"icorates"_n, icorate>;
 
 	// -----------------------------------------------------------------------------------------------------------------------
 	// Adding inline action for `sendalert` action in the same contract 
 	void send_alert(const name& user, const string& message);
+
+	// Adding inline action for `disburse` action in the same contract 
+	void disburse_inline(const name& receiver_ac,
+						const name& phase,
+						const asset& quantity,
+						const string& memo );
 
 };
 
