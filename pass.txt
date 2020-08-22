@@ -31,3 +31,6 @@ dciuser11111
 Private key: 5Hsv3moYb27TD9VDtXJRBrBMbMStNjGyaa6EcFqk2eZb1yLdFLL
 Public key: EOS8cSmKMcuZxHrRFpAwVicBb1fQpDrKtdbR565c8YNu3s1iiirbM
 -------------------------------------------------------------
+dciuser11112
+Private key: 5JdeK5xiBoZ82dBj2wvh3jrJpWd3kMsrvGrs9hAGSdwYxwQChqn
+Public key: EOS57nZFmbUKFe1vGc1EYAoQKJsgWk3MQqiuSa57piz8zNi9nYLdn
