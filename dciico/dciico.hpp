@@ -109,11 +109,10 @@ private:
 	// `fund` table is for keeping the record of all deposits in EOS
 	TABLE fund
 	{
-		asset fund_balance;			// in "EOS"
-		name status;				// "deposited"/"redeposited"/"disbursed"
-		asset disburse_qty;		// in "DCI"
+		asset deposit_qty;			// in "EOS"
+		asset disburse_qty;			// in "DCI"
 
-		auto primary_key() const { return fund_balance.symbol.raw(); }
+		auto primary_key() const { return deposit_qty.symbol.raw(); }
 	};
 
 	using fund_index = multi_index<"fund"_n, fund>;

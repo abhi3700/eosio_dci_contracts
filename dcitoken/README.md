@@ -80,7 +80,7 @@ warning: transaction executed locally, but may not be confirmed by the network y
 ```
 
 ### Action - `transfer`
-* issuer - `dcieosissuer` transfer some 10% of total 1M tokens i.e. 1,00,000 for ICO phase A
+* issuer - `dcieosissuer` transfer some 10% of total 1M tokens i.e. 1,00,000 for ICO distribution in phase A
 ```console
 $ cleost push action dci1111token transfer '["dcieosissuer", "dci111111ico", "100000.0000 DCI", "transfer DC
 I tokens for ICO phase A"]' -p dcieosissuer@active

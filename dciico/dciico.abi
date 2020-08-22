@@ -30,12 +30,8 @@
             "base": "",
             "fields": [
                 {
-                    "name": "fund_balance",
+                    "name": "deposit_qty",
                     "type": "asset"
-                },
-                {
-                    "name": "status",
-                    "type": "name"
                 },
                 {
                     "name": "disburse_qty",
