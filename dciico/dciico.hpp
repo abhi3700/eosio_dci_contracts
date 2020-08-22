@@ -1,4 +1,4 @@
-// #pragma once
+#pragma once
 #include <eosio/eosio.hpp>
 #include <eosio/asset.hpp>
 // #include <eosio/print.hpp>
@@ -45,7 +45,7 @@ public:
 
 
 	/**
-	 * @brief - deposit fund to the contract
+	 * @brief - deposit EOS into DCI ICO fund to the contract
 	 * @details 
 	 * 		- deposit the `amount` to the contract to recieve tokens at ICO rate.
 	 * 		- this table `fund` acts as a record-keeper for amounts sent by the buyers
@@ -54,7 +54,7 @@ public:
 	 * @param quantity - the deposit amount
 	 * @param memo - remarks
 	 */
-	[[eosio::on_notify("dci1111token::transfer")]]
+	[[eosio::on_notify("eosio.token::transfer")]]
 	void deposit( const name& buyer_ac, 
 					const name& contract_ac, 
 					const asset& quantity, 

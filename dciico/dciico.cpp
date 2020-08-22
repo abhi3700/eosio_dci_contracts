@@ -12,7 +12,7 @@ void dciico::deposit( const name& buyer_ac,
 		return;
 	}
 
-	// Although this is checked in "toetoken::transfer" action, but fund_token_symbol check is pending. 
+	// Although this is checked in "dcitoken::transfer" action, but fund_token_symbol check is pending. 
 	// So, in addition the entire asset check is done using static func defined in "dciico.hpp" file.
 	// check quantity is valid for all conditions as 'asset'
 	check_quantity(quantity, fund_token_symbol);
@@ -52,7 +52,7 @@ void dciico::deposit( const name& buyer_ac,
 		disburse_asset.amount = quantity.amount * ico_it->price_pereos;
 
 		// inline disburse of dapp token based on the amount of EOS sent
-		disburse_inline(buyer_ac, "a"_n, quantity, memo);
+		disburse_inline(buyer_ac, "a"_n, disburse_asset, memo);
 	} else if(memo == "phase B") {
 		auto ico_it = icorate_table.find("b"_n.value);
 
@@ -61,7 +61,7 @@ void dciico::deposit( const name& buyer_ac,
 		disburse_asset.amount = quantity.amount * ico_it->price_pereos;
 
 		// inline disburse of dapp token based on the amount of EOS sent
-		disburse_inline(buyer_ac, "b"_n, quantity, memo);
+		disburse_inline(buyer_ac, "b"_n, disburse_asset, memo);
 	} else if(memo == "phase C") {
 		auto ico_it = icorate_table.find("c"_n.value);
 
@@ -70,7 +70,7 @@ void dciico::deposit( const name& buyer_ac,
 		disburse_asset.amount = quantity.amount * ico_it->price_pereos;
 
 		// inline disburse of dapp token based on the amount of EOS sent
-		disburse_inline(buyer_ac, "c"_n, quantity, memo);
+		disburse_inline(buyer_ac, "c"_n, disburse_asset, memo);
 	}
 
 	// send alert to buyer for receiving dapp token
