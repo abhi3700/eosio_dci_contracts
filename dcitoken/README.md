@@ -62,7 +62,31 @@ warning: transaction executed locally, but may not be confirmed by the network y
 
 ## Testing
 ### Action - `create`
+* create the token 1 M tokens for 10 years. Total 10 M tokens
+```console
+$ cleost push action dci1111token create '["dcieosissuer", "10000000.0000 DCI"]' -p dci1111token@active
+executed transaction: fdbc725d043008e6f38081d456df0c5532ccb461c0951511ce235da43b2fb9d9  120 bytes  271 us
+#  dci1111token <= dci1111token::create         {"issuer":"dcieosissuer","maximum_supply":"10000000.0000 DCI"}
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+```
 
 ### Action - `issue`
+* issue 1 M to issuer - `dcieosissuer`
+```console
+$ cleost push action dci1111token issue '["dcieosissuer", "1000000.0000 DCI", "issue 1M tokens"]' -p dcieosissuer@active
+executed transaction: 84afb7eaa0a768420ed0c3864a6f6855a5240e0d969d7a640473f30a157671b0  136 bytes  279 us
+#  dci1111token <= dci1111token::issue          {"to":"dcieosissuer","quantity":"1000000.0000 DCI","memo":"issue 1M tokens"}
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+```
 
 ### Action - `transfer`
+* issuer - `dcieosissuer` transfer some 10% of total 1M tokens i.e. 1,00,000 for ICO phase A
+```console
+$ cleost push action dci1111token transfer '["dcieosissuer", "dci111111ico", "100000.0000 DCI", "transfer DC
+I tokens for ICO phase A"]' -p dcieosissuer@active
+executed transaction: e4334c81c4f2894c8de88c8e7561ebcb6e7be4705156e1e71a0d0483cb58686d  160 bytes  214 us
+#  dci1111token <= dci1111token::transfer       {"from":"dcieosissuer","to":"dci111111ico","quantity":"100000.0000 DCI","memo":"transfer DCI tokens ...
+#  dcieosissuer <= dci1111token::transfer       {"from":"dcieosissuer","to":"dci111111ico","quantity":"100000.0000 DCI","memo":"transfer DCI tokens ...
+#  dci111111ico <= dci1111token::transfer       {"from":"dcieosissuer","to":"dci111111ico","quantity":"100000.0000 DCI","memo":"transfer DCI tokens ...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+```
