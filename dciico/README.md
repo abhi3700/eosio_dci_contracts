@@ -72,9 +72,32 @@ $ cleost get table dci111111ico dci111111ico icorates
   "next_key": ""
 }
 ```
+* set the ICO rate for phase B
+```console
+$ cleost push action dci111111ico seticorate '["b", "53.00"]' -p dci111111ico@active
+executed transaction: f29ccff99f8e39f9091931173652b5a1a11dbf73f54ed1047cf9c796cefbfb96  104 bytes  224 us
+#  dci111111ico <= dci111111ico::seticorate     {"phase":"b","price_pereos":"53.00000000000000000"}
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+```
+  - view the `icorates` table now,
+```console
+$ cleost get table dci111111ico dci111111ico icorates
+{
+  "rows": [{
+      "phase": "a",
+      "price_pereos": "40.00000000000000000"
+    },{
+      "phase": "b",
+      "price_pereos": "53.00000000000000000"
+    }
+  ],
+  "more": false,
+  "next_key": ""
+}
+```
 
 ### Action - `deposit` (Payable action)
-* `dciuser11111` transfer some "3.0000 EOS" to ICO funding & gets error due to unfit memo for this action 
+* `dciuser11111` transfer some "3.0000 EOS" to ICO funding in phase-A & gets error due to unfit memo for this action 
 ```console
 $ cleost push action eosio.token transfer '["dciuser11111", "dci111111ico", "3.0000 EOS", "transfer EOS for
 ICO"]' -p dciuser11111@active
@@ -83,7 +106,7 @@ Error Details:
 assertion failure with message: For sending to this contract, parsed memo can either be 'phase A' or 'phase B' or 'phase C'
 pending console output:
 ```
-* `dciuser11111` transfer some "3.0000 EOS" to ICO funding & gets error because the contract account was not transferred any dapp tokens by the issuer - `dcieosissuer`
+* `dciuser11111` transfer some "3.0000 EOS" to ICO funding in phase-A & gets error because the contract account was not transferred any dapp tokens by the issuer - `dcieosissuer`
 ```console
 $ cleost push action eosio.token transfer '["dciuser11111", "dci111111ico", "3.0000 EOS", "phase A"]' -p dciuser11111@active
 Error 3050003: eosio_assert_message assertion failure
@@ -101,7 +124,7 @@ executed transaction: e4334c81c4f2894c8de88c8e7561ebcb6e7be4705156e1e71a0d0483cb
 #  dci111111ico <= dci1111token::transfer       {"from":"dcieosissuer","to":"dci111111ico","quantity":"100000.0000 DCI","memo":"transfer DCI tokens ...
 warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
-* `dciuser11111` successfully transfer some "3.0000 EOS" to ICO funding
+* `dciuser11111` successfully transfer some "3.0000 EOS" to ICO funding in phase-A
 ```console
 $ cleost push action eosio.token transfer '["dciuser11111", "dci111111ico", "3.0000 EOS", "phase A"]' -p dciuser11111@active
 executed transaction: 120b1b2bd3ba4a49601c6aa080c6f0ae7df3bed9c84bd4172e6fa06a9f5dd712  136 bytes  358 us
@@ -129,6 +152,35 @@ $ cleost get table dci1111token dciuser11111 accounts
 }
 ```
 	- So, basically, buyer sends `3 EOS` & receives `120 DCI` tokens instead
+* `dciuser11112` successfully transfer some "5.0000 EOS" to ICO funding in phase-B
+```console
+$ cleost push action eosio.token transfer '["dciuser11112", "dci111111ico", "5.0000 EOS", "phase B"]' -p dci
+user11112@active
+executed transaction: 524005b2059de939c79fc923394d543c7bd2d888fe3bdaabda562aa18f07949f  136 bytes  417 us
+#   eosio.token <= eosio.token::transfer        {"from":"dciuser11112","to":"dci111111ico","quantity":"5.0000 EOS","memo":"phase B"}
+#  dciuser11112 <= eosio.token::transfer        {"from":"dciuser11112","to":"dci111111ico","quantity":"5.0000 EOS","memo":"phase B"}
+#  dci111111ico <= eosio.token::transfer        {"from":"dciuser11112","to":"dci111111ico","quantity":"5.0000 EOS","memo":"phase B"}
+#  dci111111ico <= dci111111ico::disburse       {"receiver_ac":"dciuser11112","phase":"b","disburse_qty":"350.0000 DCI","memo":"phase B"}
+#  dci111111ico <= dci111111ico::sendalert      {"user":"dciuser11112","message":"You receive '350.0000 DCI' for depositing '5.0000 EOS' to DCI ICO ...
+#  dci1111token <= dci1111token::transfer       {"from":"dci111111ico","to":"dciuser11112","quantity":"350.0000 DCI","memo":"DCI ICO contract disbur...
+#  dci111111ico <= dci1111token::transfer       {"from":"dci111111ico","to":"dciuser11112","quantity":"350.0000 DCI","memo":"DCI ICO contract disbur...
+#  dciuser11112 <= dci1111token::transfer       {"from":"dci111111ico","to":"dciuser11112","quantity":"350.0000 DCI","memo":"DCI ICO contract disbur...
+#  dciuser11112 <= dci111111ico::sendalert      {"user":"dciuser11112","message":"You receive '350.0000 DCI' for depositing '5.0000 EOS' to DCI ICO ...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+```
+  - View the DCI balance of `dciuser11112` buyer
+```console
+$ cleost get table dci1111token dciuser11112 accounts
+{
+  "rows": [{
+      "balance": "350.0000 DCI"
+    }
+  ],
+  "more": false,
+  "next_key": ""
+}
+```
+
 
 ## TODO
 * [ ] Store all the fund record into different scope of same table as per phases. As of now, all the fund_transferred are added up & cumulative is shown.
