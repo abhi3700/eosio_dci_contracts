@@ -1,3 +1,27 @@
+# ICO Contract
+This contract is used for auto/manual disbursement of dApp tokens in exchange of EOS tokens (which can be modified) at ICO rates (set for multiple phases). 
+
+## Features
+* Auto-disbursement of DCI tokens from ICO contract after receiving EOS tokens from buyer.
+* Also, Manual-disbursement of DCI tokens from ICO contract is possible, if `"dciico::disburse"` action is not added as inline action, but rather  in the `dciico` contract.
+* ICO can be conducted in multiple phases completely independent of each other.
+
+## Workflow
+### Pre-requisite
+* Create DCI token with attributes:
+```md
+"max_supply": "10 M",
+"issuer": "dcieosissuer"
+```
+* Issue DCI token to the issuer: `"dcieosissuer"`
+* Issuer transfer DCI tokens to the __ICO contract__ for auto-disbursement DCI tokens only after receiving EOS tokens from buyer.
+* ICO rate has to be set by the contract owner for respective phases - A, B, C.
+
+### Real time
+* Buyer send EOS tokens & receive DCI tokens to/from contract respectively.
+
+> NOTE: Anyone can be buyer, no authentication required from Blockchain side.
+
 ## Compile
 ```console
 $ eosio-cpp dciico.cpp -o dciico.wasm
@@ -184,3 +208,8 @@ $ cleost get table dci1111token dciuser11112 accounts
 
 ## TODO
 * [ ] Store all the fund record into different scope of same table as per phases. As of now, all the fund_transferred are added up & cumulative is shown.
+
+## Transaction History
+1. For Jungle 3 Testnet, view [here](https://jungle3history.cryptolions.io/v2/history/get_actions?account=dciuser11112)
+1. Copy the JSON response from above and paste it into [here](http://jsonviewer.stack.hu/) to see in JSON format.
+
