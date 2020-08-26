@@ -1,9 +1,9 @@
 # DCI Contracts
-Suite of contracts for ICO on EOSIO Blockchain in 3 phases A, B, C 
+Suite of contracts for ICO on EOSIO Blockchain in 3 phases - A, B, C 
 
 ## Contracts
-### Token
-A token contract for transferring token (as per the ICO rate) during ICO on EOSIO Blockchains.
+### [Token](./dcitoken)
+A token contract for transferring token (as per the ICO rates) during ICO on EOSIO Blockchains.
 
 #### Action
 * `create`
@@ -15,7 +15,7 @@ A token contract for transferring token (as per the ICO rate) during ICO on EOSI
 * `stat`
 
 
-### ICO
+### [ICO](./dciico)
 
 #### Action
 * `deposit` (payable action)
