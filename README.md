@@ -1,5 +1,5 @@
-# DCI Contracts
-Suite of contracts for ICO on EOSIO Blockchain in 3 phases - A, B, C 
+# DCI ICO Contracts
+Suite of contracts for ICO funding on EOSIO Blockchain in 3 phases - A, B, C. 
 
 ## Contracts
 ### [Token](./dcitoken)
