@@ -207,6 +207,12 @@ $ cleost get table dci1111token dciuser11112 accounts
 
 
 ## TODO
+* [ ] Phase from_date, to_date
+* [ ] Phase-wise total amount disbursement in form of vector of pairs. E.g. 
+```md
+"deposit_qty": ["a", "1.0000 EOS", "b": "30.0000 EOS"]
+"disburse_qty": ["a", "14.0000 DCI", "b": "200.0000 DCI"]
+```
 * [ ] Store all the fund record into different scope of same table as per phases. As of now, all the fund_transferred are added up & cumulative is shown.
 
 ## Transaction History
