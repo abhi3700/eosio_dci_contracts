@@ -205,6 +205,28 @@ $ cleost get table dci1111token dciuser11112 accounts
 }
 ```
 
+### Action - `disburse`
+* Manually disburse DCI tokens corresponding to "7 EOS" sent from `dciuser11113` to the ico contract - `dci111111ico` in phase B
+  - calculation
+```
+ico rate for phase B: 53.00
+sent_qty: 7 EOS
+disburse_qty = 7 * 53.00 = 250.0000 DCI
+```
+  - push action via `disburse`
+```console
+$ cleost push action dci111111ico disburse '["dciuser11113", "b", "7.0000 EOS", "371.0000 DCI"]' -p dci111111ico@active
+executed transaction: e5534b0fd2eb02e52d75d35a0db00a63b6235c1d21de61bc3efb1633aa305e9d  144 bytes  319 us
+#  dci111111ico <= dci111111ico::disburse       {"receiver_ac":"dciuser11113","phase":"b","sent_qty":"7.0000 EOS","disburse_qty":"371.0000 DCI"}
+#  dci1111token <= dci1111token::transfer       {"from":"dci111111ico","to":"dciuser11113","quantity":"371.0000 DCI","memo":"DCI ICO contract disbur...
+#  dci111111ico <= dci111111ico::sendalert      {"user":"dciuser11113","message":"You receive '371.0000 DCI' for depositing '7.0000 EOS' to DCI ICO ...
+#  dci111111ico <= dci1111token::transfer       {"from":"dci111111ico","to":"dciuser11113","quantity":"371.0000 DCI","memo":"DCI ICO contract disbur...
+#  dciuser11113 <= dci1111token::transfer       {"from":"dci111111ico","to":"dciuser11113","quantity":"371.0000 DCI","memo":"DCI ICO contract disbur...
+#  dciuser11113 <= dci111111ico::sendalert      {"user":"dciuser11113","message":"You receive '371.0000 DCI' for depositing '7.0000 EOS' to DCI ICO ...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+```
+
+
 
 ## TODO
 * [ ] Phase from_date, to_date
@@ -219,3 +241,8 @@ $ cleost get table dci1111token dciuser11112 accounts
 1. For Jungle 3 Testnet, view [here](https://jungle3history.cryptolions.io/v2/history/get_actions?account=dciuser11112)
 1. Copy the JSON response from above and paste it into [here](http://jsonviewer.stack.hu/) to see in JSON format.
 
+## NOTES
+* M-1: Auto mode, where a buyer sends the EOS token & automatically, the calculation is done as per the ICO rate inside the `deposit` action itself.
+* M-2: Manual mode, where a buyer sends the EOS token. And then buyer confirms into the dApp. & then when submitted, the `disburse` action occurs. Here, the calculation is done outside the contract by fetching the ico rate from `dci111111ico` contract's table.
+  - Follow the excel file - "dapp_demo.xlsx"
+    - Screen-1 & Screen-2 are the dApp's screens.

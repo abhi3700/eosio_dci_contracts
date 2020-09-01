@@ -17,6 +17,9 @@ void dciico::deposit( const name& buyer_ac,
 	// check quantity is valid for all conditions as 'asset'
 	check_quantity(quantity, fund_token_symbol);
 
+	check((memo == "phase A") || (memo == "phase B") || (memo == "phase C"), 
+		"For sending to this contract, parsed memo can either be \'phase A' or \'phase B' or \'phase C'");
+
 	// instantiate the `fund` table
 	fund_index fund_table(get_self(), buyer_ac.value);
 	auto fund_it = fund_table.find(fund_token_symbol.raw());
@@ -33,7 +36,10 @@ void dciico::deposit( const name& buyer_ac,
 		});
 	}
 
-	// prepare for disbursement of dapp tokens as per ICO rate
+
+	// NOT needed. As the disbursement will be manual
+	// ===============================================================================================================================
+/*	// prepare for disbursement of dapp tokens as per ICO rate
 	auto disburse_asset = asset(0, dapp_token_symbol);
 	
 
@@ -74,6 +80,10 @@ void dciico::deposit( const name& buyer_ac,
 	// send alert to buyer for receiving dapp token
 	send_alert(buyer_ac, "You receive \'" + disburse_asset.to_string() + "\' for depositing \'" + 
 								quantity.to_string() + "\' to DCI ICO fund in " + memo );
+*/
+	// ===============================================================================================================================
+
+
 }
 
 
@@ -102,19 +112,27 @@ void dciico::seticorate( const name& phase,
 }
 
 // --------------------------------------------------------------------------------------------------------------------
+// For auto mode
+// void dciico::disburse(const name& receiver_ac,
+// 						const name& phase,
+// 						const asset& disburse_qty,
+// 						const string& memo )
+
+// For manual mode
 void dciico::disburse(const name& receiver_ac,
 						const name& phase,
-						const asset& disburse_qty,
-						const string& memo )
+						const asset& sent_qty,		// used inside send_alert
+						const asset& disburse_qty)
 {
 	require_auth(get_self());
-
-	// require_recipient(receiver_ac);
 
 	check(is_account(receiver_ac), "receiver account doesn't exist");
 	check( receiver_ac != get_self(), "amount can't be disbursed to contract itself");
 
 	check((phase == "a"_n) || (phase == "b"_n) || (phase == "c"_n), "Phases can either be \'a\' or \'b\' or \'c\'.");
+
+	// check quantity is valid for all conditions as 'asset'
+	check_quantity(sent_qty, fund_token_symbol);
 
 	// check quantity is valid for all conditions as 'asset'
 	check_quantity(disburse_qty, dapp_token_symbol);
@@ -131,16 +149,20 @@ void dciico::disburse(const name& receiver_ac,
 		token_contract_ac,
 		"transfer"_n,
 		std::make_tuple(get_self(), receiver_ac, disburse_qty, 
-							"DCI ICO contract disburses " + disburse_qty.to_string() + " to \'" + receiver_ac.to_string() + "\'. for contribution in ICO " + memo)
+							"DCI ICO contract disburses " + disburse_qty.to_string() + " to \'" + receiver_ac.to_string() + "\'. for contribution in ICO in phase " + phase.to_string())
 	).send();
 
 	fund_table.modify(fund_it, get_self(), [&](auto& row) {
 		row.disburse_qty += disburse_qty; 
 	});
 
+	// send alert to buyer for receiving dapp token
+	send_alert(receiver_ac, "You receive \'" + disburse_qty.to_string() + "\' for depositing \'" + 
+								sent_qty.to_string() + "\' to DCI ICO fund in phase " + phase.to_string() );
+
 }
 
-void dciico::disburse_inline(const name& receiver_ac,
+/*void dciico::disburse_inline(const name& receiver_ac,
 						const name& phase,
 						const asset& disburse_qty,
 						const string& memo )
@@ -152,7 +174,7 @@ void dciico::disburse_inline(const name& receiver_ac,
 		std::make_tuple(receiver_ac, phase, disburse_qty, memo)
 	).send();
 }
-// --------------------------------------------------------------------------------------------------------------------
+*/// --------------------------------------------------------------------------------------------------------------------
 void dciico::sendalert(const name& user,
 							const string& message) {
 	require_auth(get_self());

@@ -71,19 +71,36 @@ public:
 	ACTION seticorate( const name& phase,
 						float price_pereos );
 
+	// For auto-mode
 	/**
 	 * @brief - only accessed by contract
 	 * @details - disburse from fund to 
 	 * 
 	 * @param receiver_ac - account to whom money is disbursed
 	 * @param phase - A/B/C
-	 * @param disburse_qty - deposited quantity
+	 * @param disburse_qty - disbursed quantity
+	 * @param memo - purpose of disbursing money
+	 */
+	// ACTION disburse( const name& receiver_ac,
+	// 				const name& phase,
+	// 				const asset& disburse_qty,
+	// 				const string& memo );
+
+	// For manual-mode
+	/**
+	 * @brief - only accessed by contract
+	 * @details - disburse from fund to 
+	 * 
+	 * @param receiver_ac - account to whom money is disbursed
+	 * @param phase - A/B/C
+	 * @param sent_qty - send quantity
+	 * @param disburse_qty - disbursed quantity
 	 * @param memo - purpose of disbursing money
 	 */
 	ACTION disburse( const name& receiver_ac,
 					const name& phase,
-					const asset& disburse_qty,
-					const string& memo );
+					const asset& sent_qty,
+					const asset& disburse_qty );
 
 	/**
 	 * @brief - send alert

@@ -16,12 +16,12 @@
                     "type": "name"
                 },
                 {
-                    "name": "disburse_qty",
+                    "name": "sent_qty",
                     "type": "asset"
                 },
                 {
-                    "name": "memo",
-                    "type": "string"
+                    "name": "disburse_qty",
+                    "type": "asset"
                 }
             ]
         },
