@@ -38,3 +38,51 @@ Public key: EOS57nZFmbUKFe1vGc1EYAoQKJsgWk3MQqiuSa57piz8zNi9nYLdn
 dciuser11113
 Private key: 5JiWZiGszRVK7mcaRP2wTNDqWj7G8qVdbtX5Fpn3db58k2psEdd
 Public key: EOS6bga5cSWXYyxc9VccNvX3rXexNY7tHTh1RQtFajxmy2B2dzhQ5
+
+########################################################################
+EOS Mainnet
+*********************************************************************************************************
+
+# information given by the client
+dciecosystem [Master account]
+Private key: 5KeYPtZss8YBU2QLsDyaWp6HVwR19Dhhhj9GmRZLNtdJfthDWZP
+Public key: EOS7vFsyFyUqxBH7JX7oSf7A93T9hMgNrpogHzDoytC4o3hPDJi8H
+
+dciecodciops [Token contract]
+Private key: 5JQMKVt6aUu5beEdHhmqiDH1n4KyySkKPWsjiyA5sjBpJEpccGS
+Public key: EOS8Ja2KsMcmLCDuJBJhgjoJyubu5wFM3Cf9Gk1ywwPFe8M7LoEZk
+
+dciecotokens [ICO contract]
+Private key: 5Hw9CFViL6qV12YZxmaBQFMFtuyU6NzYSdCRssABhg5gAw23KDC
+Public key: EOS57KejXZbaxSvz9RE1V2XvLUVkPZocPqdXE19Vm3Sp2H54YCxkf
+
+dciecodealss [Token issuer]
+Private key: 5KDU4L7amPyqXnSy4zD5QVRycN1pDK68wGaYzjpkvQRgD2enor6
+Public key: EOS7hP82anZaEQvVeTaFYFW5aT6Wq6Jt8G6v2jyXMjKLHxUJqCLj4
+
+
+
+DCI Contracts
+=============
+dciecodciops [Token contract]
+Private key: 5JQMKVt6aUu5beEdHhmqiDH1n4KyySkKPWsjiyA5sjBpJEpccGS
+Public key: EOS8Ja2KsMcmLCDuJBJhgjoJyubu5wFM3Cf9Gk1ywwPFe8M7LoEZk
+-------------------------------------------------------------
+dciecotokens [ICO contract]
+Private key: 5Hw9CFViL6qV12YZxmaBQFMFtuyU6NzYSdCRssABhg5gAw23KDC
+Public key: EOS57KejXZbaxSvz9RE1V2XvLUVkPZocPqdXE19Vm3Sp2H54YCxkf
+-------------------------------------------------------------
+
+DCI System accounts
+===================
+dciecosystem [Master account]
+Private key: 5KeYPtZss8YBU2QLsDyaWp6HVwR19Dhhhj9GmRZLNtdJfthDWZP
+Public key: EOS7vFsyFyUqxBH7JX7oSf7A93T9hMgNrpogHzDoytC4o3hPDJi8H
+-------------------------------------------------------------
+dciecodealss [Token issuer]
+Private key: 5KDU4L7amPyqXnSy4zD5QVRycN1pDK68wGaYzjpkvQRgD2enor6
+Public key: EOS7hP82anZaEQvVeTaFYFW5aT6Wq6Jt8G6v2jyXMjKLHxUJqCLj4
+
+
+DCI Users
+=========
