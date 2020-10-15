@@ -1,0 +1,1 @@
+cleosm push action eosio.token transfer '["dciecosystem", "dciecodciops", "7.8465 EOS", "transfer for ICO contract deploy"]' -p dciecosystem@active dciecodciops@active
