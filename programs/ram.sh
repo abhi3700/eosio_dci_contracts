@@ -1,2 +1,2 @@
 # buy/sell ram
-cleosm system buyram dciecodciops dciecodciops "7.8465 EOS"
+cleosm system buyram dciecosystem dciecotokens "9.4120 EOS" -p dciecosystem@active dciecotokens@active
