@@ -61,7 +61,8 @@ warning: transaction executed locally, but may not be confirmed by the network y
 ```
 
 ## Testing
-### Action - `create`
+### Testnet
+#### Action - `create`
 * create the token 1 M tokens for 10 years. Total 10 M tokens
 ```console
 $ cleost push action dci1111token create '["dcieosissuer", "10000000.0000 DCI"]' -p dci1111token@active
@@ -70,7 +71,7 @@ executed transaction: fdbc725d043008e6f38081d456df0c5532ccb461c0951511ce235da43b
 warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
 
-### Action - `issue`
+#### Action - `issue`
 * issue 1 M to issuer - `dcieosissuer`
 ```console
 $ cleost push action dci1111token issue '["dcieosissuer", "1000000.0000 DCI", "issue 1M tokens"]' -p dcieosissuer@active
@@ -79,7 +80,7 @@ executed transaction: 84afb7eaa0a768420ed0c3864a6f6855a5240e0d969d7a640473f30a15
 warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
 
-### Action - `transfer`
+#### Action - `transfer`
 * issuer - `dcieosissuer` transfer some 10% of total 1M tokens i.e. 1,00,000 for ICO distribution in phase A
 ```console
 $ cleost push action dci1111token transfer '["dcieosissuer", "dci111111ico", "100000.0000 DCI", "transfer DC
@@ -89,4 +90,23 @@ executed transaction: e4334c81c4f2894c8de88c8e7561ebcb6e7be4705156e1e71a0d0483cb
 #  dcieosissuer <= dci1111token::transfer       {"from":"dcieosissuer","to":"dci111111ico","quantity":"100000.0000 DCI","memo":"transfer DCI tokens ...
 #  dci111111ico <= dci1111token::transfer       {"from":"dcieosissuer","to":"dci111111ico","quantity":"100000.0000 DCI","memo":"transfer DCI tokens ...
 warning: transaction executed locally, but may not be confirmed by the network yet         ]
+```
+
+### Mainnet
+#### Action - `create`
+* create the token 300 B tokens (max.) & Total 30 B tokens to be circulated
+```console
+$ cleosm push action dciecodealss create '["dciecotokens", "300000000000.0000 DCI"]' -p dciecodealss@active
+```
+
+#### Action - `issue`
+* issue 30 B to issuer - `dciecotokens`
+```console
+$ cleost push action dciecodealss issue '["dciecotokens", "30000000000.0000 DCI", "issue 30 B tokens"]' -p dciecotokens@active
+```
+
+#### Action - `transfer`
+* issuer - `dciecotokens` transfer some 10% of total 1M tokens i.e. 1,00,000 for ICO distribution in phase A
+```console
+$ cleost push action dciecodealss transfer '["dciecotokens", "dci111111ico", "100000.0000 DCI", "transfer DCI tokens for ICO phase A"]' -p dcieosissuer@active
 ```
