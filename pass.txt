@@ -49,8 +49,8 @@ Private key: 5KeYPtZss8YBU2QLsDyaWp6HVwR19Dhhhj9GmRZLNtdJfthDWZP
 Public key: EOS7vFsyFyUqxBH7JX7oSf7A93T9hMgNrpogHzDoytC4o3hPDJi8H
 
 dciecodciops [ICO contract]
-Private key: 5JQMKVt6aUu5beEdHhmqiDH1n4KyySkKPWsjiyA5sjBpJEpccGS
-Public key: EOS8Ja2KsMcmLCDuJBJhgjoJyubu5wFM3Cf9Gk1ywwPFe8M7LoEZk
+Private key: 5KVSQkKjWxmCMexkGTiQWnyGgteLwEonUQPrK5UMwYw9uEvKbXd
+Public key: EOS5nHF7xKpD7xQ7DTDUsuSUuK2LAYAHA7Z5vGbGkFCKfXyCNS9zF
 
 dciecotokens [token issuer]
 Private key: 5Hw9CFViL6qV12YZxmaBQFMFtuyU6NzYSdCRssABhg5gAw23KDC
@@ -65,8 +65,8 @@ Public key: EOS7hP82anZaEQvVeTaFYFW5aT6Wq6Jt8G6v2jyXMjKLHxUJqCLj4
 DCI Contracts
 =============
 dciecodciops [ICO contract]
-Private key: 5JQMKVt6aUu5beEdHhmqiDH1n4KyySkKPWsjiyA5sjBpJEpccGS
-Public key: EOS8Ja2KsMcmLCDuJBJhgjoJyubu5wFM3Cf9Gk1ywwPFe8M7LoEZk
+Private key: 5KVSQkKjWxmCMexkGTiQWnyGgteLwEonUQPrK5UMwYw9uEvKbXd
+Public key: EOS5nHF7xKpD7xQ7DTDUsuSUuK2LAYAHA7Z5vGbGkFCKfXyCNS9zF
 -------------------------------------------------------------
 dciecodealss [Token contract]
 Private key: 5KDU4L7amPyqXnSy4zD5QVRycN1pDK68wGaYzjpkvQRgD2enor6
