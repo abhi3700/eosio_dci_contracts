@@ -57,8 +57,8 @@ Private key: 5JufXQJsG1EhwEDcuA9yiaAyU6zFijVbYgXCsCFv38uBYH5vzqY
 Public key: EOS7a68TAHKrfyRiQ8HCZnQpwzj2FrPYJJxHSxiWz3c7H1LfwqwRv
 
 dciecodealss [Token contract]
-Private key: 5KDU4L7amPyqXnSy4zD5QVRycN1pDK68wGaYzjpkvQRgD2enor6
-Public key: EOS7hP82anZaEQvVeTaFYFW5aT6Wq6Jt8G6v2jyXMjKLHxUJqCLj4
+Private key: 5JK9QKw6Atks2JjY29Dx3MiypBAXeRf8c5V7nQHtLsYw9gWcwRY
+Public key: EOS5oP11Yqn91nqsvz1JQbx9a1ZdAaip7G6u8FysgeUNQbKKQq2F1
 
 
 
@@ -69,8 +69,8 @@ Private key: 5KVSQkKjWxmCMexkGTiQWnyGgteLwEonUQPrK5UMwYw9uEvKbXd
 Public key: EOS5nHF7xKpD7xQ7DTDUsuSUuK2LAYAHA7Z5vGbGkFCKfXyCNS9zF
 -------------------------------------------------------------
 dciecodealss [Token contract]
-Private key: 5KDU4L7amPyqXnSy4zD5QVRycN1pDK68wGaYzjpkvQRgD2enor6
-Public key: EOS7hP82anZaEQvVeTaFYFW5aT6Wq6Jt8G6v2jyXMjKLHxUJqCLj4
+Private key: 5JK9QKw6Atks2JjY29Dx3MiypBAXeRf8c5V7nQHtLsYw9gWcwRY
+Public key: EOS5oP11Yqn91nqsvz1JQbx9a1ZdAaip7G6u8FysgeUNQbKKQq2F1
 -------------------------------------------------------------
 
 DCI System accounts
