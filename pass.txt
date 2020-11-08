@@ -53,8 +53,8 @@ Private key: 5KVSQkKjWxmCMexkGTiQWnyGgteLwEonUQPrK5UMwYw9uEvKbXd
 Public key: EOS5nHF7xKpD7xQ7DTDUsuSUuK2LAYAHA7Z5vGbGkFCKfXyCNS9zF
 
 dciecotokens [token issuer]
-Private key: 5Hw9CFViL6qV12YZxmaBQFMFtuyU6NzYSdCRssABhg5gAw23KDC
-Public key: EOS57KejXZbaxSvz9RE1V2XvLUVkPZocPqdXE19Vm3Sp2H54YCxkf
+Private key: 5JufXQJsG1EhwEDcuA9yiaAyU6zFijVbYgXCsCFv38uBYH5vzqY
+Public key: EOS7a68TAHKrfyRiQ8HCZnQpwzj2FrPYJJxHSxiWz3c7H1LfwqwRv
 
 dciecodealss [Token contract]
 Private key: 5KDU4L7amPyqXnSy4zD5QVRycN1pDK68wGaYzjpkvQRgD2enor6
@@ -80,8 +80,8 @@ Private key: 5KeYPtZss8YBU2QLsDyaWp6HVwR19Dhhhj9GmRZLNtdJfthDWZP
 Public key: EOS7vFsyFyUqxBH7JX7oSf7A93T9hMgNrpogHzDoytC4o3hPDJi8H
 -------------------------------------------------------------
 dciecotokens [token issuer]
-Private key: 5Hw9CFViL6qV12YZxmaBQFMFtuyU6NzYSdCRssABhg5gAw23KDC
-Public key: EOS57KejXZbaxSvz9RE1V2XvLUVkPZocPqdXE19Vm3Sp2H54YCxkf
+Private key: 5JufXQJsG1EhwEDcuA9yiaAyU6zFijVbYgXCsCFv38uBYH5vzqY
+Public key: EOS7a68TAHKrfyRiQ8HCZnQpwzj2FrPYJJxHSxiWz3c7H1LfwqwRv
 
 
 DCI Users
